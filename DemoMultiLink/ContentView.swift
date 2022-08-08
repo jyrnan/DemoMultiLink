@@ -6,14 +6,29 @@
 //
 
 import SwiftUI
+import TestMultiLinkSDK
 
 struct ContentView: View {
+    var service: SocketService = SocketService()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            
+            TabView {
+                UdpClientView()
+                    .tabItem{
+                        Label("Udp", systemImage: "desktopcomputer")
+                    }
+                
+                TcpClientView()
+                    .tabItem{
+                        Label("TcpClient", systemImage: "desktopcomputer")
+                    }
+                
+                ServerView()
+                    .tabItem{
+                        Label("TcpServer", systemImage: "server.rack")}
+            }
+            .navigationTitle("SocketTest")
         }
     }
 }

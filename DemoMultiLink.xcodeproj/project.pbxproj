@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B39388C289FA83300427FC3 /* UdpClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B39388B289FA83300427FC3 /* UdpClientView.swift */; };
 		4B5C9F56289CF8C40037742F /* DemoMultiLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F55289CF8C40037742F /* DemoMultiLinkApp.swift */; };
 		4B5C9F58289CF8C40037742F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F57289CF8C40037742F /* ContentView.swift */; };
 		4B5C9F5A289CF8C50037742F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B5C9F59289CF8C50037742F /* Assets.xcassets */; };
@@ -14,6 +15,11 @@
 		4B5C9F67289CF8C50037742F /* DemoMultiLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F66289CF8C50037742F /* DemoMultiLinkTests.swift */; };
 		4B5C9F71289CF8C50037742F /* DemoMultiLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F70289CF8C50037742F /* DemoMultiLinkUITests.swift */; };
 		4B5C9F73289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F72289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift */; };
+		4B5C9F83289D03200037742F /* TestMultiLinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */; };
+		4B5C9F84289D03200037742F /* TestMultiLinkSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5C9F8A289D16490037742F /* TcpClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F89289D16490037742F /* TcpClientView.swift */; };
+		4B5C9F8C289D16D00037742F /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F8B289D16D00037742F /* ServerView.swift */; };
+		4B5C9F8E289D539A0037742F /* SocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F8D289D539A0037742F /* SocketViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +39,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4B5C9F85289D03200037742F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B5C9F84289D03200037742F /* TestMultiLinkSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4B39388B289FA83300427FC3 /* UdpClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdpClientView.swift; sourceTree = "<group>"; };
 		4B5C9F52289CF8C40037742F /* DemoMultiLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMultiLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C9F55289CF8C40037742F /* DemoMultiLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultiLinkApp.swift; sourceTree = "<group>"; };
 		4B5C9F57289CF8C40037742F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +65,10 @@
 		4B5C9F6C289CF8C50037742F /* DemoMultiLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoMultiLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C9F70289CF8C50037742F /* DemoMultiLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultiLinkUITests.swift; sourceTree = "<group>"; };
 		4B5C9F72289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultiLinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestMultiLinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5C9F89289D16490037742F /* TcpClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpClientView.swift; sourceTree = "<group>"; };
+		4B5C9F8B289D16D00037742F /* ServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
+		4B5C9F8D289D539A0037742F /* SocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5C9F83289D03200037742F /* TestMultiLinkSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +104,7 @@
 				4B5C9F65289CF8C50037742F /* DemoMultiLinkTests */,
 				4B5C9F6F289CF8C50037742F /* DemoMultiLinkUITests */,
 				4B5C9F53289CF8C40037742F /* Products */,
+				4B5C9F81289D03200037742F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +123,10 @@
 			children = (
 				4B5C9F55289CF8C40037742F /* DemoMultiLinkApp.swift */,
 				4B5C9F57289CF8C40037742F /* ContentView.swift */,
+				4B5C9F89289D16490037742F /* TcpClientView.swift */,
+				4B5C9F8B289D16D00037742F /* ServerView.swift */,
+				4B39388B289FA83300427FC3 /* UdpClientView.swift */,
+				4B5C9F8D289D539A0037742F /* SocketViewModel.swift */,
 				4B5C9F59289CF8C50037742F /* Assets.xcassets */,
 				4B5C9F5B289CF8C50037742F /* Preview Content */,
 			);
@@ -127,6 +158,14 @@
 			path = DemoMultiLinkUITests;
 			sourceTree = "<group>";
 		};
+		4B5C9F81289D03200037742F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +176,7 @@
 				4B5C9F4E289CF8C40037742F /* Sources */,
 				4B5C9F4F289CF8C40037742F /* Frameworks */,
 				4B5C9F50289CF8C40037742F /* Resources */,
+				4B5C9F85289D03200037742F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,7 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5C9F58289CF8C40037742F /* ContentView.swift in Sources */,
+				4B5C9F8C289D16D00037742F /* ServerView.swift in Sources */,
 				4B5C9F56289CF8C40037742F /* DemoMultiLinkApp.swift in Sources */,
+				4B5C9F8A289D16490037742F /* TcpClientView.swift in Sources */,
+				4B5C9F8E289D539A0037742F /* SocketViewModel.swift in Sources */,
+				4B39388C289FA83300427FC3 /* UdpClientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
