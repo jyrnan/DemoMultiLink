@@ -11,7 +11,7 @@ import TestMultiLinkSDK
 struct ContentView: View {
     var service: SocketService = SocketService()
     var body: some View {
-        NavigationStack {
+        NavigationView {
             
             TabView {
                 UdpClientView()
