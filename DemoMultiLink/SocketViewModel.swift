@@ -83,9 +83,14 @@ class SocketViewModel: ObservableObject, Listener {
         dataHandler(data: data)
     }
     
+    func deliver(devices: [DeviceInfo]) {
+        updateLogMessage(log: devices.description)
+    }
+    
     func notified(with message: String) {
         updateLogMessage(log: message)
     }
+    
     //MARK: - 获取IP
     func getIFAddresses() -> [String] {
             var addresses = [String]()
