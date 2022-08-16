@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B39388C289FA83300427FC3 /* UdpClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B39388B289FA83300427FC3 /* UdpClientView.swift */; };
+		4B52603D28AB917400AF114E /* CocoaAsyncSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 4B52603C28AB917400AF114E /* CocoaAsyncSocket */; };
 		4B5C9F56289CF8C40037742F /* DemoMultiLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F55289CF8C40037742F /* DemoMultiLinkApp.swift */; };
 		4B5C9F58289CF8C40037742F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F57289CF8C40037742F /* ContentView.swift */; };
 		4B5C9F5A289CF8C50037742F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B5C9F59289CF8C50037742F /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B52603D28AB917400AF114E /* CocoaAsyncSocket in Frameworks */,
 				4B5C9F83289D03200037742F /* TestMultiLinkSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +187,9 @@
 			dependencies = (
 			);
 			name = DemoMultiLink;
+			packageProductDependencies = (
+				4B52603C28AB917400AF114E /* CocoaAsyncSocket */,
+			);
 			productName = DemoMultiLink;
 			productReference = 4B5C9F52289CF8C40037742F /* DemoMultiLink.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +262,9 @@
 				Base,
 			);
 			mainGroup = 4B5C9F49289CF8C40037742F;
+			packageReferences = (
+				4B52603B28AB917400AF114E /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */,
+			);
 			productRefGroup = 4B5C9F53289CF8C40037742F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -635,6 +643,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B52603B28AB917400AF114E /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robbiehanson/CocoaAsyncSocket";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B52603C28AB917400AF114E /* CocoaAsyncSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B52603B28AB917400AF114E /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */;
+			productName = CocoaAsyncSocket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B5C9F4A289CF8C40037742F /* Project object */;
 }
