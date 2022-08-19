@@ -9,7 +9,7 @@ import SwiftUI
 import TestMultiLinkSDK
 
 struct ContentView: View {
-    var service: SocketService = SocketService()
+    var service: YMLNetworkService = YMLNetworkService()
     var body: some View {
         NavigationView {
             

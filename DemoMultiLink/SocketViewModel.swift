@@ -13,7 +13,7 @@ import TestMultiLinkSDK
 class SocketViewModel: ObservableObject, Listener {
     
     //MARK: - 变量
-    var service: SocketService = .init()
+    var service: YMLNetworkService = .init()
     @Published var ip: String = "127.0.0.1"
     @Published var port: String = "8000"
     @Published var message: String = ""
@@ -53,14 +53,14 @@ class SocketViewModel: ObservableObject, Listener {
     }
     
     func stopUdp() {
-        service.closeUdpSocket()
+//        service.closeUdpSocket()
         isConnected = false
     }
     
     func sendUdpData() {
         let data = message.data(using: .utf8)!
-        
-        service.sendUdpData(data, to: ip, on: UInt16(port) ?? service.UDP_PORT)
+        //TODO: - 发送命令
+        service.sendGeneralCommand(command: "", data: KEYData())
     }
     
     //MARK: - 数据处理方法
