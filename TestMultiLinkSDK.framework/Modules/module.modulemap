@@ -1,0 +1,11 @@
+framework module TestMultiLinkSDK {
+  umbrella header "TestMultiLinkSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module TestMultiLinkSDK.Swift {
+    header "TestMultiLinkSDK-Swift.h"
+    requires objc
+}

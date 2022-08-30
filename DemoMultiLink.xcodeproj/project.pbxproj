@@ -16,11 +16,11 @@
 		4B5C9F67289CF8C50037742F /* DemoMultiLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F66289CF8C50037742F /* DemoMultiLinkTests.swift */; };
 		4B5C9F71289CF8C50037742F /* DemoMultiLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F70289CF8C50037742F /* DemoMultiLinkUITests.swift */; };
 		4B5C9F73289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F72289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift */; };
-		4B5C9F83289D03200037742F /* TestMultiLinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */; };
-		4B5C9F84289D03200037742F /* TestMultiLinkSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B5C9F8A289D16490037742F /* TcpClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F89289D16490037742F /* TcpClientView.swift */; };
 		4B5C9F8C289D16D00037742F /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F8B289D16D00037742F /* ServerView.swift */; };
 		4B5C9F8E289D539A0037742F /* SocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C9F8D289D539A0037742F /* SocketViewModel.swift */; };
+		D252B75A28B6052F00F82636 /* TestMultiLinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D252B75828B6037300F82636 /* TestMultiLinkSDK.framework */; };
+		D252B75B28B6052F00F82636 /* TestMultiLinkSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D252B75828B6037300F82636 /* TestMultiLinkSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4B5C9F84289D03200037742F /* TestMultiLinkSDK.framework in Embed Frameworks */,
+				D252B75B28B6052F00F82636 /* TestMultiLinkSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,10 +67,10 @@
 		4B5C9F6C289CF8C50037742F /* DemoMultiLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoMultiLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C9F70289CF8C50037742F /* DemoMultiLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultiLinkUITests.swift; sourceTree = "<group>"; };
 		4B5C9F72289CF8C50037742F /* DemoMultiLinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultiLinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestMultiLinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C9F89289D16490037742F /* TcpClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpClientView.swift; sourceTree = "<group>"; };
 		4B5C9F8B289D16D00037742F /* ServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
 		4B5C9F8D289D539A0037742F /* SocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketViewModel.swift; sourceTree = "<group>"; };
+		D252B75828B6037300F82636 /* TestMultiLinkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TestMultiLinkSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B52603D28AB917400AF114E /* CocoaAsyncSocket in Frameworks */,
-				4B5C9F83289D03200037742F /* TestMultiLinkSDK.framework in Frameworks */,
+				D252B75A28B6052F00F82636 /* TestMultiLinkSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +165,7 @@
 		4B5C9F81289D03200037742F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B5C9F82289D03200037742F /* TestMultiLinkSDK.framework */,
+				D252B75828B6037300F82636 /* TestMultiLinkSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -471,8 +471,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoMultiLink/Preview Content\"";
-				DEVELOPMENT_TEAM = 9UNC2Z2573;
+				DEVELOPMENT_TEAM = FAL6NRZRQP;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoMultiLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -502,8 +506,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoMultiLink/Preview Content\"";
-				DEVELOPMENT_TEAM = 9UNC2Z2573;
+				DEVELOPMENT_TEAM = FAL6NRZRQP;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoMultiLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

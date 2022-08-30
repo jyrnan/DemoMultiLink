@@ -5,14 +5,12 @@
 //  Created by Yong Jin on 2022/8/5.
 //
   
-
 import Foundation
 import TestMultiLinkSDK
 
-
 class SocketViewModel: ObservableObject, Listener {
-    
-    //MARK: - 变量
+    // MARK: - 变量
+
     var service: YMLNetworkService = .init()
     @Published var ip: String = "127.0.0.1"
     @Published var port: String = "8000"
@@ -35,7 +33,14 @@ class SocketViewModel: ObservableObject, Listener {
     
     func connectClientTo() {
         setupListener()
-        isConnected = service.connectToHost(ip, on: port)
+        
+        let willConnectToDeviceInfo = DeviceInfo(name: "NoName", platform: "Platform", ip: ip, sdkVersion: "SDKVersion")
+        isConnected = service.createTcpChannel(info: willConnectToDeviceInfo)
+        
+        //如果调用公开接口不行 则调用
+        if !isConnected {
+            isConnected = service.connectToHost(ip, on: UInt16(port)!)
+        }
     }
     
     func sendtcpData() {
@@ -46,24 +51,24 @@ class SocketViewModel: ObservableObject, Listener {
         message = ""
     }
     
-    //MARK: - UDP
+    // MARK: - UDP
+
     func startUdp() {
         setupListener()
         isConnected = service.createUdpChannel(info: DeviceInfo())
     }
     
     func stopUdp() {
-//        service.closeUdpSocket()
         isConnected = false
     }
     
     func sendUdpData() {
         let data = message.data(using: .utf8)!
-        //TODO: - 发送命令
+        // TODO: - 发送命令
         service.sendGeneralCommand(command: "", data: KEYData())
     }
     
-    //MARK: - 数据处理方法
+    // MARK: - 数据处理方法
     
     private func updateLogMessage(log: String) {
         let date = Date.now.formatted(date: .omitted, time: .standard)
@@ -78,7 +83,7 @@ class SocketViewModel: ObservableObject, Listener {
         updateLogMessage(log: msgHex)
     }
     
-    //MARK: - Listener protocol
+    // MARK: - Listener protocol
     
     func deliver(data: Data) {
         dataHandler(data: data)
@@ -92,47 +97,46 @@ class SocketViewModel: ObservableObject, Listener {
         updateLogMessage(log: message)
     }
     
-    //MARK: - 获取IP
+    // MARK: - 获取IP
+
     func getIFAddresses() -> [String] {
-            var addresses = [String]()
+        var addresses = [String]()
             
-            // Get list of all interfaces on the local machine:
-            var ifaddr : UnsafeMutablePointer<ifaddrs>? = nil
-            if getifaddrs(&ifaddr) == 0 {
-              
-              var ptr = ifaddr
-              while ptr != nil {
+        // Get list of all interfaces on the local machine:
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
+        if getifaddrs(&ifaddr) == 0 {
+            var ptr = ifaddr
+            while ptr != nil {
                 let flags = Int32((ptr?.pointee.ifa_flags)!)
                 var addr = ptr?.pointee.ifa_addr.pointee
                 
                 // Check for running IPv4, IPv6 interfaces. Skip the loopback interface.
                 if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
-                  if addr?.sa_family == UInt8(AF_INET) //|| addr?.sa_family == UInt8(AF_INET6)
+                    if addr?.sa_family == UInt8(AF_INET) // || addr?.sa_family == UInt8(AF_INET6)
                     {
-                    
-                    // Convert interface address to a human readable string:
-                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                    if (getnameinfo(&addr!, socklen_t((addr?.sa_len)!), &hostname, socklen_t(hostname.count),
-                                    nil, socklen_t(0), NI_NUMERICHOST) == 0) {
-                      if let address = String(validatingUTF8: hostname) {
-                        addresses.append(address)
-                      }
+                        // Convert interface address to a human readable string:
+                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                        if getnameinfo(&addr!, socklen_t((addr?.sa_len)!), &hostname, socklen_t(hostname.count),
+                                       nil, socklen_t(0), NI_NUMERICHOST) == 0
+                        {
+                            if let address = String(validatingUTF8: hostname) {
+                                addresses.append(address)
+                            }
+                        }
                     }
-                  }
                 }
                 ptr = ptr?.pointee.ifa_next
-              }
-
-                freeifaddrs(ifaddr)
             }
-            print("Local IP \(addresses)")
-            return addresses
+
+            freeifaddrs(ifaddr)
         }
-   
+        print("Local IP \(addresses)")
+        return addresses
+    }
 }
 
 extension Data {
     func hexString() -> String {
-        return self.isEmpty ? "No HexData" : "\\x" + self.map { String(format: "%02x", $0)}.joined(separator: "\\x")
+        return isEmpty ? "No HexData" : "\\x" + map { String(format: "%02x", $0) }.joined(separator: "\\x")
     }
 }
